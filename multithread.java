@@ -1,45 +1,74 @@
-class demo extends Thread
-      {
-     public void run()
-          {
-           int count=1;
-            try
-              {
-              if(count==1)
-               {
-              Thread.sleep(10);
-                }
-              else if(count==2)
-               {
-              Thread.sleep(20);
-                }
-              else
-               {
-              Thread.sleep(10);
-                }
-              count++;
-               }
-              catch(InterruptedException e)
-                {
-                System.out.println("Thread interrupted");
-                  }
-         String[] name={"Hi","Hello","Thank you"};
-         for(int i=0;i<3;i++)
-            {
-           System.out.println(name[i]);
-              }
-      System.out.println(Thread.currentThread().getId());
-             }
-        }
+//class book implements Runnable{
+//    public void run()
+//    {
+//        for(int i=0;i<5;i++)
+//        {
+//            System.out.println("Update");
+//            try
+//            {
+//                Thread.sleep(8000);
+//            }
+//            catch(Exception e)
+//            {
+//                System.out.println(e);
+//            }
+//        }
+//    }
+//
+//}
+//class num extends Thread{
+//    public void run()
+//    {
+//        for(int i=0;i<5;i++)
+//        {
+//            System.out.println(i);
+//            try
+//            {
+//                Thread.sleep(3000);
+//            }
+//            catch(Exception e)
+//            {
+//                System.out.println(e);
+//            }
+//        }
+//    }
+//
+//}
+//public class multithread {
+//    public static void main(String args[]) throws InterruptedException
+//    {
+//        book b = new book(); //acts like an thread
+////        b.update();
+//        Thread t1 = new Thread(b);
+//        t1.start();
+//        num n = new num(); //made it another thread
+////        n.print();
+//        n.start();
+//
+////        book.join();
+////        num.join();
+//
+//        System.out.println("End of main thread");
+//    }
+//}
 
-public class multithread
-            {
-     public static void main(String args[])
-                {
-         for(int i=1;i<=3;i++)
-               {
-             demo d = new demo();
-             d.start();
-                 }
-                   }
-              }
+class multithreadExample extends Thread
+{
+    public void run()
+    {
+        System.out.println("Current Thread is :"+Thread.currentThread().getId());
+    }
+}
+class multithread {
+    public static void main(String args[])
+    {
+        int n =8;
+        System.out.println("Multithreading");
+        for(int i=0;i<n;i++)
+        {
+            multithreadExample t1 = new multithreadExample();
+            t1.start();
+        }
+    }
+
+}
